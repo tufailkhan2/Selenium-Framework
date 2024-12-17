@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SauceDemo Test Suit">
+
+    <listeners>
+        <listener class-name="ExtentReporter.ExtentSetup"/>
+
+    </listeners>
+
+    <test name="SauceDemo Test Cases with chrome">
+        <parameter name="browserName" value="chrome"></parameter>
+        <classes>
+            <class name="Tests.Task1SauceDemoTest"> </class>
+        </classes>
+    </test>
+
+<!--    <test name="SauceDemo Test Cases with firefox">-->
+<!--        <parameter name="browserName" value="firefox"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="Tests.Task1SauceDemoTest"> </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
