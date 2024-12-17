@@ -1,5 +1,4 @@
 package Tests;
-import Pages.PracticePage;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import BasePackage.baseClass;
