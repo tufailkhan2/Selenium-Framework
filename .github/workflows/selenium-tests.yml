@@ -1,6 +1,12 @@
 name: Run Selenium Tests Daily
 
 on:
+# Trigger on push to specific branches
+  push:
+    branches:
+      - main
+      - master
+
   schedule:
     # Runs at 2:00 AM PST (10:00 UTC)
     - cron: '0 10 * * *'
