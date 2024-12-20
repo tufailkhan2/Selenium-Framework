@@ -4,17 +4,14 @@ import BasePackage.baseClass;
 import Pages.Task1SauceDemo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import org.testng.Assert;
 import utilities.commonFunctions;
 
 public class Task1SauceDemoTest extends baseClass {
     Task1SauceDemo task1;
     commonFunctions commonFtns;
-    @BeforeClass
+    @BeforeSuite
     @Parameters({"browserName"})
     public void loginSetup(String browserName) throws InterruptedException{
         baseClass.setUp(browserName);
