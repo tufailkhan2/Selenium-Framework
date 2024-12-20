@@ -2,6 +2,7 @@ package Pages;
 
 import BasePackage.baseClass;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -17,7 +18,6 @@ public class Task1SauceDemo extends baseClass {
     public Task1SauceDemo(WebDriver driver) {
         baseClass.driver = driver;
     }
-
 
     String userNameFieldId = "user-name";
     String passwordFieldId = "password";
@@ -117,6 +117,7 @@ public class Task1SauceDemo extends baseClass {
 
     public void contactus() {
 //        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+//        JavascriptExecutor js = new JavascriptExecutor();
         commonFtns.scrollDown("xpath", contactUsLinkXpath);
         System.out.println("Waiting for element: " + contactUsLinkXpath);
         commonFtns.I_AM_WAIT("xpath", contactUsLinkXpath);

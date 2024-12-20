@@ -106,6 +106,7 @@ public class commonFunctions extends baseClass {
         js.executeScript("arguments[0].scrollIntoView(true);", locator);
     }
 
+    //Common function to wait for the page load
     public void waitForPageLoad() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
 
