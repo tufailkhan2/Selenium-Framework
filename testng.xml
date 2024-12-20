@@ -13,13 +13,12 @@
         </classes>
     </test>
 
-    <!-- Un-comment this block to test with Firefox -->
-    <!--
+<!--     Un-comment this block to test with Firefox-->
+
     <test name="SauceDemo Test Cases with firefox">
         <parameter name="browserName" value="firefox"/>
         <classes>
             <class name="Tests.Task1SauceDemoTest"/>
         </classes>
     </test>
-    -->
 </suite>
