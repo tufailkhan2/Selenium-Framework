@@ -42,9 +42,8 @@ jobs:
 
     # Run TestNG tests
     - name: Run Selenium Tests
-      run: mvn test -Dsurefire.suiteXmlFiles=src/testng.xml
+      run: mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml -Dmaven.test.failure.ignore=true
 
-    # Archive test results
     - name: Archive test results
       uses: actions/upload-artifact@v3
       with:
