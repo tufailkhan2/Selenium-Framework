@@ -42,7 +42,7 @@ public class Task1SauceDemoTest extends baseClass {
     }
 
     @AfterClass
-    public static void tearDown(){
+    public void quitDriver(){
         baseClass.tearDown();
     }
 
