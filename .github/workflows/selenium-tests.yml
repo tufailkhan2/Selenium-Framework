@@ -42,7 +42,7 @@ jobs:
 
     # Run TestNG tests
     - name: Run Selenium Tests
-      run: mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml
+      run: mvn test -Dsurefire.suiteXmlFiles=src/testng.xml
 
     # Archive test results
     - name: Archive test results
