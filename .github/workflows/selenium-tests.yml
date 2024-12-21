@@ -1,15 +1,13 @@
 name: Run Selenium Tests Daily
 
 on:
-# Trigger on push to specific branches
   push:
     branches:
       - main
       - master
 
   schedule:
-    # Runs at 2:00 AM PST (10:00 UTC)
-    - cron: '0 10 * * *'
+    - cron: '0 10 * * *'  # Runs at 2:00 AM PST (10:00 UTC)
 
 jobs:
   test:
@@ -21,11 +19,6 @@ jobs:
       uses: actions/checkout@v3
 
     # Set up JDK
-    # - name: Set up JDK 11
-    #   uses: actions/setup-java@v3
-    #   with:
-    #     distribution: 'temurin'
-    #     java-version: '11'
     - name: Set up JDK 8
       uses: actions/setup-java@v3
       with:
@@ -36,7 +29,7 @@ jobs:
     - name: Cache Maven dependencies
       uses: actions/cache@v3
       with:
-        path: ~/.m2
+        path: ${{ runner.os == 'Windows' && github.workspace }}\.m2
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
@@ -47,10 +40,68 @@ jobs:
 
     # Run TestNG tests
     - name: Run Selenium Tests
-      run: mvn test -Dsurefire.suiteXmlFiles=D:/SeleniumAssignment/Selenium/testng.xml
+      run: mvn test -Dsurefire.suiteXmlFiles=testng.xml
 
+    # Archive test results
     - name: Archive test results
       uses: actions/upload-artifact@v3
       with:
         name: test-results
         path: target/surefire-reports/
+
+# name: Run Selenium Tests Daily
+
+# on:
+# # Trigger on push to specific branches
+#   push:
+#     branches:
+#       - main
+#       - master
+
+#   schedule:
+#     # Runs at 2:00 AM PST (10:00 UTC)
+#     - cron: '0 10 * * *'
+
+# jobs:
+#   test:
+#     runs-on: windows-latest
+
+#     steps:
+#     # Checkout the code
+#     - name: Checkout code
+#       uses: actions/checkout@v3
+
+#     # Set up JDK
+#     # - name: Set up JDK 11
+#     #   uses: actions/setup-java@v3
+#     #   with:
+#     #     distribution: 'temurin'
+#     #     java-version: '11'
+#     - name: Set up JDK 8
+#       uses: actions/setup-java@v3
+#       with:
+#         distribution: 'temurin'
+#         java-version: '8'
+
+#     # Cache Maven dependencies
+#     - name: Cache Maven dependencies
+#       uses: actions/cache@v3
+#       with:
+#         path: ~/.m2
+#         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+#         restore-keys: |
+#           ${{ runner.os }}-maven-
+
+#     # Install dependencies
+#     - name: Install dependencies
+#       run: mvn install
+
+#     # Run TestNG tests
+#     - name: Run Selenium Tests
+#       run: mvn test -Dsurefire.suiteXmlFiles=D:/SeleniumAssignment/Selenium/testng.xml
+
+#     - name: Archive test results
+#       uses: actions/upload-artifact@v3
+#       with:
+#         name: test-results
+#         path: target/surefire-reports/
