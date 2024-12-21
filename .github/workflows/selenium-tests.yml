@@ -42,7 +42,7 @@ jobs:
 
     # Run TestNG tests
     - name: Run Selenium Tests
-      run: mvn test -Dsurefire.suiteXmlFiles=testng.xml
+      run: mvn test -Dsurefire.suiteXmlFiles=D:/SeleniumAssignment/Selenium/testng.xml
 
     - name: Archive test results
       uses: actions/upload-artifact@v3
