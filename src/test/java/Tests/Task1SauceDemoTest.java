@@ -15,6 +15,7 @@ public class Task1SauceDemoTest extends baseClass {
     @BeforeSuite
     @Parameters({"browserName"})
     public void loginSetup(String browserName) throws InterruptedException{
+        System.out.println("Browser Parameter Passed: " + browserName);
         baseClass.setUp(browserName);
         task1 = new Task1SauceDemo(driver);
         commonFtns = new commonFunctions();
