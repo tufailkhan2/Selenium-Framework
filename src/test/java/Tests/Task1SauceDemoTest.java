@@ -11,6 +11,7 @@ import utilities.commonFunctions;
 public class Task1SauceDemoTest extends baseClass {
     Task1SauceDemo task1;
     commonFunctions commonFtns;
+
     @BeforeSuite
     @Parameters({"browserName"})
     public void loginSetup(String browserName) throws InterruptedException{
